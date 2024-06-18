@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on whitsons page</title>
-    <link>http://localhost:1313/posts/</link>
+    <link>https://whitson-buck.github.io/posts/</link>
     <description>Recent content in Posts on whitsons page</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 18 Jun 2024 11:55:15 -0400</lastBuildDate>
-    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://whitson-buck.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>First post</title>
-      <link>http://localhost:1313/posts/firstpost/</link>
+      <link>https://whitson-buck.github.io/posts/firstpost/</link>
       <pubDate>Tue, 18 Jun 2024 11:55:15 -0400</pubDate>
-      <guid>http://localhost:1313/posts/firstpost/</guid>
+      <guid>https://whitson-buck.github.io/posts/firstpost/</guid>
       <description>Welcome to my page. I plan on populating this with professional achievements and some personal musings &amp;ndash; using it as a half-portfolio, half-thought page.&#xA;(I like the terminal themed page. My wife thinks it&amp;rsquo;s kind of dumb. It might be both.)&#xA;Myself in a summary: I am a perpetually curious individual with a knack for solving problems. I am a disciple of the scriptures and am seeking God&amp;rsquo;s kingdom on earth as it is in heaven.</description>
     </item>
   </channel>
