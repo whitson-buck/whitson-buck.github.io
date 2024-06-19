@@ -1,7 +1,7 @@
 import OSM from '../../../../../homepage/node_modules/ol/source/OSM'
 import TileLayer from '../../../../../homepage/node_modules/ol/layer/Tile'
 import {Map, View} from '../../../../../homepage/node_modules/ol'
-import {fromLonLat} from '../../../../../ol/proj'
+import {fromLonLat} from '../../../../../homepage/node_modules/ol/proj'
 
 new Map({
     target: 'map-container',
