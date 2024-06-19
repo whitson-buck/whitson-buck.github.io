@@ -6,8 +6,15 @@
     <description>Recent content on whitsons page</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 18 Jun 2024 11:55:15 -0400</lastBuildDate>
+    <lastBuildDate>Wed, 19 Jun 2024 13:35:24 -0400</lastBuildDate>
     <atom:link href="https://whitson-buck.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Integrating Openlayers</title>
+      <link>https://whitson-buck.github.io/posts/openlayers/</link>
+      <pubDate>Wed, 19 Jun 2024 13:35:24 -0400</pubDate>
+      <guid>https://whitson-buck.github.io/posts/openlayers/</guid>
+      <description>We&amp;rsquo;re gonna see if we can&amp;rsquo;t get openlayers to integrate with this here website and do a little mapping.</description>
+    </item>
     <item>
       <title>First post</title>
       <link>https://whitson-buck.github.io/posts/firstpost/</link>
