@@ -1,7 +1,7 @@
-import OSM from 'homepage/node_modules/ol/source/OSM'
-import TileLayer from 'homepage/node_modules/ol/layer/Tile'
-import {Map, View} from 'homepage/node_modules/ol'
-import {fromLonLat} from 'ol/proj'
+import OSM from '../../../../../homepage/node_modules/ol/source/OSM'
+import TileLayer from '../../../../../homepage/node_modules/ol/layer/Tile'
+import {Map, View} from '../../../../../homepage/node_modules/ol'
+import {fromLonLat} from '../../../../../ol/proj'
 
 new Map({
     target: 'map-container',
@@ -15,3 +15,5 @@ new Map({
         zoom: 2,
     }),
 });
+
+node_modules/ol
