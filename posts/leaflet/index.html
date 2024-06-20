@@ -84,14 +84,17 @@ Jun. 20, 2024
     <!-- Leaflet JavaScript -->
     <script>
         // Initialize the map and set its view
-        var map = L.map('map').setView([35.964668, -83.926453], 10);
+        var map = L.map('map').setView([35.964668, -83.926453], 15);
 
         // Add a tile layer to the map
         L.tileLayer('https://api.maptiler.com/maps/topo-v2/{z}/{x}/{y}.png?key=uydcgCgidLoMc7nfexb5', {
             attribution: '© OpenStreetMap contributors'
         }).addTo(map);
 
-        marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
+        var popup = L.popup()
+            .setLatLng([35.964668, -83.926453])
+            .setContent('Welcome to Knoxville, TN!')
+            .openOn(map);
 
     </script>
   </body>
