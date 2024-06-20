@@ -45,6 +45,17 @@
       border: 2px solid #000;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   }
+
+        /* Slider container */
+        .slider-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .slider-container input[type="range"] {
+            width: 80%;
+            max-width: 800px;
+        }
 </style>
 
 </head>
@@ -81,20 +92,43 @@ Jun. 20, 2024
       <div id="map"></div>
   </div>
 
+          <!-- Slider container for toggling layers -->
+          <div class="slider-container">
+            <input type="range" id="layer-slider" min="0" max="1" step="1" value="0">
+            <label for="layer-slider">Toggle Map Layers</label>
+        </div>
+
     <!-- Leaflet JavaScript -->
     <script>
         // Initialize the map and set its view
-        var map = L.map('map').setView([35.964668, -83.926453], 15);
+        var map = L.map('map').setView([35.964668, -83.926453], 14);
 
-        // Add a tile layer to the map
-        L.tileLayer('https://api.maptiler.com/maps/topo-v2/{z}/{x}/{y}.png?key=uydcgCgidLoMc7nfexb5', {
+        var normalMap = L.tileLayer('https://api.maptiler.com/maps/openstreetmap/{z}/{x}/{y}.jpg?key=uydcgCgidLoMc7nfexb5', {
             attribution: '© OpenStreetMap contributors'
-        }).addTo(map);
+        });
+
+        // Define the topographic map layer
+        var topoMap = L.tileLayer('https://api.maptiler.com/maps/topo-v2/{z}/{x}/{y}.png?key=uydcgCgidLoMc7nfexb5', {
+            attribution: '© OpenStreetMap contributors, SRTM | Map style: © OpenTopoMap (CC-BY-SA)'
+        });
+        
+        normalMap.addTo(map);
 
         var popup = L.popup()
             .setLatLng([35.964668, -83.926453])
             .setContent('Welcome to Knoxville, TN!')
             .openOn(map);
+
+        var slider = document.getElementById('layer-slider');
+        slider.addEventListener('input', function() {
+            if (this.value == '0') {
+                map.removeLayer(topoMap);
+                map.addLayer(normalMap);
+            } else {
+                map.removeLayer(normalMap);
+                map.addLayer(topoMap);
+            }
+        });
 
     </script>
   </body>
