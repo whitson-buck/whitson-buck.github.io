@@ -45,16 +45,50 @@
       border: 2px solid #000;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   }
-
-        /* Slider container */
-        .slider-container {
+/* Dropdown button styles */
+  .dropdown {
+            position: relative;
+            display: inline-block;
             text-align: center;
             margin-top: 20px;
         }
 
-        .slider-container input[type="range"] {
-            width: 80%;
-            max-width: 800px;
+  .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+  .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+  .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+  .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+  .dropdown:hover .dropbtn {
+            background-color: #3e8e41;
+        }
+
+  .dropbtn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
         }
 </style>
 
@@ -92,11 +126,14 @@ Jun. 20, 2024
       <div id="map"></div>
   </div>
 
-          <!-- Slider container for toggling layers -->
-          <div class="slider-container">
-            <input type="range" id="layer-slider" min="0" max="1" step="1" value="0">
-            <label for="layer-slider">Toggle Map Layers</label>
-        </div>
+  <div class="dropdown">
+    <button class="dropbtn">Toggle Map Layers</button>
+    <div class="dropdown-content">
+        <a href="#" id="normalMapBtn">Normal Map</a>
+        <a href="#" id="topoMapBtn">Topographic Map</a>
+        <a href="#" id="satelliteMapBtn">Satellite Map</a>
+    </div>
+</div>
 
     <!-- Leaflet JavaScript -->
     <script>
@@ -111,7 +148,11 @@ Jun. 20, 2024
         var topoMap = L.tileLayer('https://api.maptiler.com/maps/topo-v2/{z}/{x}/{y}.png?key=uydcgCgidLoMc7nfexb5', {
             attribution: '© OpenStreetMap contributors, SRTM | Map style: © OpenTopoMap (CC-BY-SA)'
         });
-        
+
+        var satelliteMap = L.tileLayer('https://api.maptiler.com/maps/satellite/{z}/{x}/{y}.jpg?key=uydcgCgidLoMc7nfexb5', {
+            attribution: '© OpenStreetMap contributors, SRTM | Map style: © OpenTopoMap (CC-BY-SA)'
+        });
+
         normalMap.addTo(map);
 
         var popup = L.popup()
@@ -119,15 +160,34 @@ Jun. 20, 2024
             .setContent('Welcome to Knoxville, TN!')
             .openOn(map);
 
-        var slider = document.getElementById('layer-slider');
-        slider.addEventListener('input', function() {
-            if (this.value == '0') {
-                map.removeLayer(topoMap);
-                map.addLayer(normalMap);
-            } else {
-                map.removeLayer(normalMap);
-                map.addLayer(topoMap);
-            }
+        // Add a click event to show a popup where the user clicks
+        map.on('click', function(e) {
+            var latlng = e.latlng;
+            L.popup()
+                .setLatLng(latlng)
+                .setContent('You clicked the map at ' + latlng.toString())
+                .openOn(map);
+        });
+
+        // Function to switch layers
+        function switchLayer(layer) {
+            map.eachLayer(function (l) {
+                map.removeLayer(l);
+            });
+            layer.addTo(map);
+        }
+
+        // Event listeners for dropdown options
+        document.getElementById('normalMapBtn').addEventListener('click', function() {
+            switchLayer(normalMap);
+        });
+
+        document.getElementById('topoMapBtn').addEventListener('click', function() {
+            switchLayer(topoMap);
+        });
+
+        document.getElementById('satelliteMapBtn').addEventListener('click', function() {
+            switchLayer(satelliteMap);
         });
 
     </script>
