@@ -25,6 +25,8 @@
     <meta name="twitter:title" content="resume"/>
     <meta name="twitter:description" content="This page showcases my professional resume."/>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+
     <style>
         .download-button {
             position: fixed;
@@ -63,7 +65,7 @@
         </div>
     </div>
 
-    <a href="/export?format=pdf" class="download-button">Download as PDF</a>
+    <button class="download-button" onclick="downloadPDF()">Download as PDF</button>
 
     <div class="container">
         <h1>Highlighted Feedback</h1>
