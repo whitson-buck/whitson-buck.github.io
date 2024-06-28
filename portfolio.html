@@ -43,6 +43,15 @@
             width: 100%;
             height: 100%;
         }
+        .square {
+            height: 75px;
+            width: 75px;
+        }
+        img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
     </style>
 </head>
 <body class="terminal">
@@ -74,12 +83,15 @@
         <ul>
             <li>
                 <strong>Created GIS Python package (geolog)</strong>: Performs a variety of analyses on imported shapefiles. Available on PyPi and Conda.
-                <iframe width="420" height="315" src="https://www.youtube.com/embed/dpBgp2L5XYY"></iframe>
             </li>
+                <iframe width="420" height="280" src="https://www.youtube.com/embed/dpBgp2L5XYY"></iframe>
+            
             <li>
                 <strong>Using LiDAR to detect sinks in White Co., TN</strong>: Pending publication in Pursuit Journal.
                 <br><a href="https://docs.google.com/document/d/1CQpwE-7AvARAzqZOHcN_e_sCDCENGLarEdjYUmu_t14/edit">Read Report</a>
-                <br><img src="/images/LiDAR.jpg" alt="Sinks in White Co" width="50px" height="50px">
+                <div class="square">
+                    <img src="/images/LiDAR.jpg">
+                </div>
             </li>
             <li>
                 <strong>Highwall Mine Identification</strong>: Used LiDAR data across East Tennessee to identify abandoned highwall mines for the Tennessee Department of Ecology and Conservation.
