@@ -25,6 +25,25 @@
     <meta name="twitter:title" content="GIS Analyst Portfolio"/>
     <meta name="twitter:description" content="Showcasing the professional portfolio of a GIS Analyst, including projects, skills, and experience."/>
 
+
+    <style>
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+            margin-bottom: 20px;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
 </head>
 <body class="terminal">
     <div class="container">
@@ -55,7 +74,9 @@
         <ul>
             <li>
                 <strong>Created GIS Python package (geolog)</strong>: Performs a variety of analyses on imported shapefiles. Available on PyPi and Conda.
-                <br><a href="https://www.youtube.com/watch?v=dpBgp2L5XYY">Watch Video</a>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/watch?v=dpBgp2L5XYY" frameborder="0" allowfullscreen></iframe>
+                </div>
             </li>
             <li>
                 <strong>Using LiDAR to detect sinks in White Co., TN</strong>: Pending publication in Pursuit Journal.
