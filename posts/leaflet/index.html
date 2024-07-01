@@ -40,29 +40,29 @@
             position: relative; /* Make it easier to position the dropdown */
         }
   
-  #map {
-      height: 500px;
-      width: 1000px;
-      border: 2px solid #000;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  }
+    #map {
+        height: 500px;
+        width: 1000px;
+        border: 2px solid #000;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
 
 /* Dropdown button styles */
         .dropdown {
-            position: relative;
-            top: 10px;
-            left: 400px;
-            z-index: 1000;
+          position: absolute; /* Make it absolute relative to the body */
+          top: calc(50% - 20px); /* Center the button vertically (adjust button height with 20px) */
+          left: calc(50% - 80px); /* Center the button horizontally (adjust button width with 80px) */
+          z-index: 1000;
         }
 
         .dropdown-content {
-            display: none;
-            position: relative;
-            background-color: #f9f9f9;
-            min-width: 160px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-            z-index: 1001;
-            right: 0;
+          display: none;
+          position: absolute; /* Make it positioned relative to the button */
+          background-color: #f9f9f9;
+          min-width: 160px;
+          box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+          z-index: 1001;
+          /* Remove right: 0; as it's not needed for this positioning */
         }
 
         .dropdown-content a {
