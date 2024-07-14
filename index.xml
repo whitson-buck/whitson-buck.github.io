@@ -6,8 +6,15 @@
     <description>Recent content on whitsons page</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 20 Jun 2024 11:35:28 -0400</lastBuildDate>
+    <lastBuildDate>Sat, 13 Jul 2024 19:41:34 -0400</lastBuildDate>
     <atom:link href="https://whitson-buck.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Pythonapplet</title>
+      <link>https://whitson-buck.github.io/posts/pythonapplet/</link>
+      <pubDate>Sat, 13 Jul 2024 19:41:34 -0400</pubDate>
+      <guid>https://whitson-buck.github.io/posts/pythonapplet/</guid>
+      <description>A lesson in chaotic data. I&amp;rsquo;ve posted this on , but I figured it would be appropriate to share on this page. This graduate school project was a high-level exercise in data wrangling, joining, manipulating, exploring, and analyzing.&#xA;To give you an idea of now nothing came easy on this project, I chose to use a Levenshtein distance function across thousands of rows as a soft join. This was one of a few choices I made over the course of the project, given time restrictions and minimum requirements.</description>
+    </item>
     <item>
       <title>Leaflet</title>
       <link>https://whitson-buck.github.io/posts/leaflet/</link>
