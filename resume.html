@@ -26,6 +26,7 @@
     <meta name="twitter:description" content="This page showcases my professional resume."/>
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
 
     <style>
         .button {
@@ -65,7 +66,7 @@
         </div>
     </div>
 
-    <button class="button">Download as PDF</button>
+    <button class="download-button" onclick="downloadPDF()">Download as PDF</button>
 
     <div class="container">
         <h2>My resume</h2>
@@ -109,14 +110,27 @@
         </div>
     </div>
     
-<script src="html2pdf.bundle.min.js"></script>
     <script>
-        const btn = document.getElementById("button");
+        async function downloadPDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
 
-        btn.addEventListener("click", function(){
-        var element = document.getElementById('body');
-        html2pdf().from(element).save('filename.pdf');
-        });
+            const contentElement = document.getElementById('content');
+            const contentHTML = contentElement.innerHTML;
+
+            const specialElementHandlers = {
+                '#editor': function (element, renderer) {
+                    return true;
+                }
+            };
+
+            doc.fromHTML(contentHTML, 15, 15, {
+                'width': 170,
+                'elementHandlers': specialElementHandlers
+            });
+
+            doc.save('resume.pdf');
+        }
     </script>
 </body>
 </html>
