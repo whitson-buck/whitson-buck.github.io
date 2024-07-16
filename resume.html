@@ -66,7 +66,7 @@
         </div>
     </div>
 
-    <button class="download-button" onclick="downloadPDF()">Download as PDF</button>
+    <button class="download-button" onclick="downloadPDF()">Download Resume</button>
 
     <div class="container">
         <h2>My resume</h2>
@@ -111,25 +111,8 @@
     </div>
     
     <script>
-        async function downloadPDF() {
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF();
-
-            const contentElement = document.getElementById('content');
-            const contentHTML = contentElement.innerHTML;
-
-            const specialElementHandlers = {
-                '#editor': function (element, renderer) {
-                    return true;
-                }
-            };
-
-            doc.fromHTML(contentHTML, 15, 15, {
-                'width': 170,
-                'elementHandlers': specialElementHandlers
-            });
-
-            doc.save('resume.pdf');
+        function downloadPDF() {
+            window.location.href = 'WJB_Resume_2024.pdf';
         }
     </script>
 </body>
