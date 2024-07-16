@@ -28,7 +28,7 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 
     <style>
-        .download-button {
+        .button {
             position: fixed;
             top: 10px;
             right: 10px;
@@ -42,7 +42,7 @@
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
-        .download-button:hover {
+        .button:hover {
             background-color: #0056b3;
         }
     </style>
@@ -65,7 +65,7 @@
         </div>
     </div>
 
-    <button class="download-button" onclick="downloadPDF()">Download as PDF</button>
+    <button class="button" onclick="downloadPDF()">Download as PDF</button>
 
     <div class="container">
         <h2>My resume</h2>
@@ -108,43 +108,15 @@
             <a href="https://github.com/mrmierzejewski/hugo-theme-console/">Console Theme</a>.
         </div>
     </div>
+    
+<script src="html2pdf.bundle.min.js"></script>
     <script>
-        async function downloadPDF() {
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF();
+        const btn = document.getElementById("button");
 
-            const contentElement = document.getElementById('content');
-            const contentText = contentElement.innerText;
-
-            const images = contentElement.getElementsByTagName('img');
-            let imagePromises = [];
-
-            for (let i = 0; i < images.length; i++) {
-                imagePromises.push(loadImage(images[i].src));
-            }
-
-            const imageElements = await Promise.all(imagePromises);
-
-            doc.text(contentText, 10, 10);
-            let yPosition = 10;
-
-            for (let i = 0; i < imageElements.length; i++) {
-                doc.addImage(imageElements[i], 'JPEG', 10, yPosition + 10, 180, 160);
-                yPosition += 170;
-            }
-
-            doc.save('portfolio.pdf');
-        }
-
-        function loadImage(url) {
-            return new Promise((resolve, reject) => {
-                const img = new Image();
-                img.crossOrigin = 'Anonymous';
-                img.src = url;
-                img.onload = () => resolve(img);
-                img.onerror = (err) => reject(err);
-            });
-        }
+        btn.addEventListener("click", function(){
+        var element = document.getElementById('body');
+        html2pdf().from(element).save('filename.pdf');
+        });
     </script>
 </body>
 </html>
